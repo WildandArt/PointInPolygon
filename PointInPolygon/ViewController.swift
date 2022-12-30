@@ -11,7 +11,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        //var solver = PointInPolygonSolver(vertices: [Point(x: 0.4, y: 3.0)])
     }
 
 

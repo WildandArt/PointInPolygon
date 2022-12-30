@@ -16,6 +16,11 @@
 		5C914DE4295DDBCD005F9A37 /* PointInPolygonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914DE3295DDBCD005F9A37 /* PointInPolygonTests.swift */; };
 		5C914DEE295DDBCD005F9A37 /* PointInPolygonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914DED295DDBCD005F9A37 /* PointInPolygonUITests.swift */; };
 		5C914DF0295DDBCD005F9A37 /* PointInPolygonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914DEF295DDBCD005F9A37 /* PointInPolygonUITestsLaunchTests.swift */; };
+		5C914DFD295DDC62005F9A37 /* PointInPolygonSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914DFC295DDC62005F9A37 /* PointInPolygonSolver.swift */; };
+		5C914DFF295DDC8E005F9A37 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914DFE295DDC8E005F9A37 /* Point.swift */; };
+		5C914E01295EB97D005F9A37 /* TriangulateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914E00295EB97D005F9A37 /* TriangulateTests.swift */; };
+		5C914E05295ECA60005F9A37 /* AngleCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914E04295ECA60005F9A37 /* AngleCheck.swift */; };
+		5C914E07295F0796005F9A37 /* crossProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914E06295F0796005F9A37 /* crossProduct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		5C914DE9295DDBCD005F9A37 /* PointInPolygonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PointInPolygonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C914DED295DDBCD005F9A37 /* PointInPolygonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInPolygonUITests.swift; sourceTree = "<group>"; };
 		5C914DEF295DDBCD005F9A37 /* PointInPolygonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInPolygonUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5C914DFC295DDC62005F9A37 /* PointInPolygonSolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInPolygonSolver.swift; sourceTree = "<group>"; };
+		5C914DFE295DDC8E005F9A37 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		5C914E00295EB97D005F9A37 /* TriangulateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangulateTests.swift; sourceTree = "<group>"; };
+		5C914E04295ECA60005F9A37 /* AngleCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleCheck.swift; sourceTree = "<group>"; };
+		5C914E06295F0796005F9A37 /* crossProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crossProduct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				5C914DCC295DDBCB005F9A37 /* AppDelegate.swift */,
+				5C914DFC295DDC62005F9A37 /* PointInPolygonSolver.swift */,
+				5C914DFE295DDC8E005F9A37 /* Point.swift */,
 				5C914DCE295DDBCB005F9A37 /* SceneDelegate.swift */,
 				5C914DD0295DDBCB005F9A37 /* ViewController.swift */,
 				5C914DD2295DDBCB005F9A37 /* Main.storyboard */,
@@ -114,6 +126,9 @@
 			isa = PBXGroup;
 			children = (
 				5C914DE3295DDBCD005F9A37 /* PointInPolygonTests.swift */,
+				5C914E00295EB97D005F9A37 /* TriangulateTests.swift */,
+				5C914E04295ECA60005F9A37 /* AngleCheck.swift */,
+				5C914E06295F0796005F9A37 /* crossProduct.swift */,
 			);
 			path = PointInPolygonTests;
 			sourceTree = "<group>";
@@ -259,6 +274,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C914DD1295DDBCB005F9A37 /* ViewController.swift in Sources */,
+				5C914DFF295DDC8E005F9A37 /* Point.swift in Sources */,
+				5C914DFD295DDC62005F9A37 /* PointInPolygonSolver.swift in Sources */,
 				5C914DCD295DDBCB005F9A37 /* AppDelegate.swift in Sources */,
 				5C914DCF295DDBCB005F9A37 /* SceneDelegate.swift in Sources */,
 			);
@@ -268,6 +285,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C914E07295F0796005F9A37 /* crossProduct.swift in Sources */,
+				5C914E05295ECA60005F9A37 /* AngleCheck.swift in Sources */,
+				5C914E01295EB97D005F9A37 /* TriangulateTests.swift in Sources */,
 				5C914DE4295DDBCD005F9A37 /* PointInPolygonTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
