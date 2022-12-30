@@ -21,6 +21,7 @@
 		5C914E01295EB97D005F9A37 /* TriangulateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914E00295EB97D005F9A37 /* TriangulateTests.swift */; };
 		5C914E05295ECA60005F9A37 /* AngleCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914E04295ECA60005F9A37 /* AngleCheck.swift */; };
 		5C914E07295F0796005F9A37 /* crossProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914E06295F0796005F9A37 /* crossProduct.swift */; };
+		5C914E09295F341C005F9A37 /* nearestDistanceToLineBetweenTwoPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914E08295F341C005F9A37 /* nearestDistanceToLineBetweenTwoPoints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		5C914E00295EB97D005F9A37 /* TriangulateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangulateTests.swift; sourceTree = "<group>"; };
 		5C914E04295ECA60005F9A37 /* AngleCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleCheck.swift; sourceTree = "<group>"; };
 		5C914E06295F0796005F9A37 /* crossProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crossProduct.swift; sourceTree = "<group>"; };
+		5C914E08295F341C005F9A37 /* nearestDistanceToLineBetweenTwoPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nearestDistanceToLineBetweenTwoPoints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				5C914DE3295DDBCD005F9A37 /* PointInPolygonTests.swift */,
+				5C914E08295F341C005F9A37 /* nearestDistanceToLineBetweenTwoPoints.swift */,
 				5C914E00295EB97D005F9A37 /* TriangulateTests.swift */,
 				5C914E04295ECA60005F9A37 /* AngleCheck.swift */,
 				5C914E06295F0796005F9A37 /* crossProduct.swift */,
@@ -287,6 +290,7 @@
 			files = (
 				5C914E07295F0796005F9A37 /* crossProduct.swift in Sources */,
 				5C914E05295ECA60005F9A37 /* AngleCheck.swift in Sources */,
+				5C914E09295F341C005F9A37 /* nearestDistanceToLineBetweenTwoPoints.swift in Sources */,
 				5C914E01295EB97D005F9A37 /* TriangulateTests.swift in Sources */,
 				5C914DE4295DDBCD005F9A37 /* PointInPolygonTests.swift in Sources */,
 			);

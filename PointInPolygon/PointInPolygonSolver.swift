@@ -12,8 +12,86 @@ import Foundation
 class PointInPolygonSolver{
     var vertices : [Point]?
 
+    func findADistanceIfPointIsOutside(vertices : [Point],
+                                       pointToCheck : Point
+    )->Double{
+        //find all the pairs
+        // find a minimum distance between a point and a line between the pair
+        return 0.0
+    }
+    func isPointInPolygon(vertices : [Point],
+                          pointToCheck : Point)->Bool{
+
+        var triangles : [Int] = []
+        var errorMsg : String = ""
+        var indexList = Array(0...vertices.count - 1)
+
+        if !isValidPolygon(vertices) {return false}
+
+        while indexList.count > 3{//if less than 3 we add the last to list of triangles
+
+            for i in 0..<indexList.count{
+
+                var isEar = true
+
+                var a = indexList[i]
+                var b = getItem(list: indexList, index: i - 1)
+                var c = getItem(list: indexList, index: i + 1)
+
+                var va = vertices[a]
+                var vb = vertices[b]
+                var vc = vertices[c]
+
+                if angleIsMoreThan180(va: va, vb: vb, vc: vc){
+                    continue
+                }
+
+                //check if a vertice is inside a triangle
+                for j in 0..<vertices.count{
+                    if j == a || j == b || j == c{
+                        continue
+                    }
+                    var p = vertices[j]
+                    if isPointInTriangle(pointInCheck: p,
+                            aPoint: va,
+                            bPoint: vc,
+                            cPoint: vb) {
+                        isEar = false
+                        break
+                    }
+                }
+                if isEar{
+                    //check if a point is in the triangle
+                    if isPointInTriangle(pointInCheck: pointToCheck,
+                                         aPoint: va,
+                                         bPoint: vc,
+                                         cPoint: vb){
+                        return true
+                    }
+                    // add triangle to the list
+                    triangles.append(a)
+                    triangles.append(b)
+                    triangles.append(c)
+                    //erase index from the indexList
+                    indexList.remove(at: i)
+                    // check  if the Point of Interest is in a triangle
+                    //start a loop all over again
+                    break
+                }
+
+            }
+        }
+        //left with 3 triangles
+        triangles.append(indexList[0])
+        triangles.append(indexList[1])
+        triangles.append(indexList[2])
+        print("triangles : \(triangles), number of trinagles: \(triangles.count / 3) , number of vertices: \(vertices.count)")
+        return false
+    }
 
 
+}
+extension PointInPolygonSolver{
     func triangulate(vertices : [Point])->Bool{
 
         var triangles : [Int] = []
@@ -46,7 +124,10 @@ class PointInPolygonSolver{
                         continue
                     }
                     var p = vertices[j]
-                    if isPointInTriangle(pointInCheck: p, aPoint: va, bPoint: vb, cPoint: vc) {
+                    if isPointInTriangle(pointInCheck: p,
+                                         aPoint: va,
+                                         bPoint: vc,
+                                         cPoint: vb) {
                         isEar = false
                         break
                     }
@@ -69,10 +150,9 @@ class PointInPolygonSolver{
         triangles.append(indexList[0])
         triangles.append(indexList[1])
         triangles.append(indexList[2])
+        print("triangles : \(triangles), number of trinagles: \(triangles.count / 3) , number of vertices: \(vertices.count)")
         return true
     }
-}
-extension PointInPolygonSolver{
     func isValidPolygon(_ vertices : [Point])->Bool{
         if vertices.count < 3{
             return false
@@ -125,7 +205,22 @@ extension PointInPolygonSolver{
         var cross2 = crossProduct(vec1: bc, vec2: bp)
         var cross3 = crossProduct(vec1: ca, vec2: cp)
 
-        if (cross1 > 0 || cross2 > 0 || cross3 > 0){return false}
+        if (cross1 > 0 || cross2 > 0 || cross3 > 0){
+            return false
+
+        }
         return true
+    }
+    func nearestDistanceToLineBetweenTwoPoints(a :Point,
+                                               b : Point,
+                                               pointToCheck c : Point)-> Double{
+        //formula
+        let s1 = -(b.y) + a.y
+        let s2 = b.x - a.x
+        var mone = (c.x - a.x) * s1 + (c.y - a.y) * s2
+        if mone < 0 {mone * (-1)}
+        let mechane = sqrt(((s1*s1) + (s2*s2)))
+        return mone / mechane
+
     }
 }

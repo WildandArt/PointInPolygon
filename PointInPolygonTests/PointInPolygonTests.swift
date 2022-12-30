@@ -39,6 +39,22 @@ final class PointInPolygonTests: XCTestCase {
                                             cPoint: c)
         )
     }
+    func testPointInsideTriangle2() throws {
+        //given
+        let a = Point(x: 2.20, y: 4.09)
+        let b = Point(x: 6.09, y: 5.80)
+        let c = Point(x: 3.91, y: 0.20)
+
+        let pointInside = Point(x: 4.78, y: 3.45)
+        //when
+
+        //test
+        XCTAssertTrue(sut.isPointInTriangle(pointInCheck: pointInside,
+                                            aPoint: a,
+                                            bPoint: b,
+                                            cPoint: c)
+        )
+    }
     func testPointOutsideTriangle() throws {
         //given
         let a = abc.triangle[0]
