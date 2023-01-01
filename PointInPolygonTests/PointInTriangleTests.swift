@@ -11,6 +11,16 @@ struct abc {
     static let triangle : [Point] = [Point(x: 1.38, y: 2.78),
                            Point(x: 6.50, y: 6.92),
                            Point(x: 7.53, y: 0.42)]
+    static let triangle1 = [
+        Point(x: 6.09, y: 5.80),
+        Point(x: 2.03, y: 2.54),
+        Point(x: 6.88, y: 0.66),
+    ]
+    static let triangle3 = [
+        Point(x: -64.14, y: 31.57),
+        Point(x: 58.09, y: 40.19),
+        Point(x: 6.88, y: 0.66),
+    ]
 }
 final class PointInPolygonTests: XCTestCase {
     var sut : PointInPolygonSolver!
@@ -33,7 +43,7 @@ final class PointInPolygonTests: XCTestCase {
         //when
 
         //test
-        XCTAssertTrue(sut.isPointInTriangle(pointInCheck: pointInside,
+        XCTAssertTrue(sut.isPointInTriangle2(pointInCheck: pointInside,
                                             aPoint: a,
                                             bPoint: b,
                                             cPoint: c)
@@ -49,7 +59,7 @@ final class PointInPolygonTests: XCTestCase {
         //when
 
         //test
-        XCTAssertTrue(sut.isPointInTriangle(pointInCheck: pointInside,
+        XCTAssertTrue(sut.isPointInTriangle2(pointInCheck: pointInside,
                                             aPoint: a,
                                             bPoint: b,
                                             cPoint: c)
@@ -62,7 +72,7 @@ final class PointInPolygonTests: XCTestCase {
         let c = abc.triangle[2]
         let pointOutside = Point(x: 4, y: 6)
         //when
-        let result = sut.isPointInTriangle(
+        let result = sut.isPointInTriangle2(
             pointInCheck: pointOutside,
             aPoint: a,
             bPoint: b,
@@ -77,7 +87,7 @@ final class PointInPolygonTests: XCTestCase {
         let c = abc.triangle[2]
         let pointOnVertex = abc.triangle[2]
         //when
-        let result = sut.isPointInTriangle(
+        let result = sut.isPointInTriangle2(
             pointInCheck: pointOnVertex,
             aPoint: a,
             bPoint: b,
@@ -92,7 +102,7 @@ final class PointInPolygonTests: XCTestCase {
         let c = abc.triangle[2]
         let pointOnBorder = Point(x: 3, y: 4.08991)
         //when
-        let result = sut.isPointInTriangle(
+        let result = sut.isPointInTriangle2(
             pointInCheck: pointOnBorder,
             aPoint: a,
             bPoint: b,
@@ -100,6 +110,61 @@ final class PointInPolygonTests: XCTestCase {
         //test
         XCTAssertTrue(result)
     }
+    func testOutsideTriangle1(){
+        let a = abc.triangle1[0]
+        let b = abc.triangle1[1]
+        let c = abc.triangle1[2]
+        let p = Point(x: 0, y: 0)
+        let result = sut.isPointInTriangle2(pointInCheck: p,
+                                           aPoint: a,
+                                           bPoint: b,
+                                           cPoint: c)
+        XCTAssertFalse(result)
+    }
+//    func testOnVertexTriangle1(){
+//        let a = abc.triangle1[0]
+//        let b = abc.triangle1[1]
+//        let c = abc.triangle1[2]
+//        let p = abc.triangle1[0]
+//        let result = sut.isPointInTriangle2(pointInCheck: p,
+//                                           aPoint: a,
+//                                           bPoint: b,
+//                                           cPoint: c)
+//        XCTAssertFalse(result)
+//    }
+    func testOutsideTriangle3(){
+        let a = abc.triangle3[0]
+        let b = abc.triangle3[1]
+        let c = abc.triangle3[2]
+        let p = Point(x: 35, y: 20)
+        let result = sut.isPointInTriangle2(pointInCheck: p,
+                                           aPoint: a,
+                                           bPoint: b,
+                                           cPoint: c)
+        XCTAssertFalse(result)
+    }
+    func testInsideTriangle3(){
+        let a = abc.triangle3[0]
+        let b = abc.triangle3[1]
+        let c = abc.triangle3[2]
+        let p = Point(x: 0, y: 20)
+        let result = sut.isPointInTriangle2(pointInCheck: p,
+                                           aPoint: a,
+                                           bPoint: b,
+                                           cPoint: c)
+        XCTAssertTrue(result)
+    }
+    func testOnVertexTriangle3(){
+        let a = abc.triangle3[0]
+        let b = abc.triangle3[1]
+        let c = abc.triangle3[2]
+        let result = sut.isPointInTriangle2(pointInCheck: a,
+                                           aPoint: a,
+                                           bPoint: b,
+                                           cPoint: c)
+        XCTAssertTrue(result)
+    }
+
 
 
 //    func testPerformanceExample() throws {

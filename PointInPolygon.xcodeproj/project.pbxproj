@@ -13,7 +13,7 @@
 		5C914DD4295DDBCB005F9A37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C914DD2295DDBCB005F9A37 /* Main.storyboard */; };
 		5C914DD6295DDBCC005F9A37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C914DD5295DDBCC005F9A37 /* Assets.xcassets */; };
 		5C914DD9295DDBCC005F9A37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C914DD7295DDBCC005F9A37 /* LaunchScreen.storyboard */; };
-		5C914DE4295DDBCD005F9A37 /* PointInPolygonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914DE3295DDBCD005F9A37 /* PointInPolygonTests.swift */; };
+		5C914DE4295DDBCD005F9A37 /* PointInTriangleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914DE3295DDBCD005F9A37 /* PointInTriangleTests.swift */; };
 		5C914DEE295DDBCD005F9A37 /* PointInPolygonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914DED295DDBCD005F9A37 /* PointInPolygonUITests.swift */; };
 		5C914DF0295DDBCD005F9A37 /* PointInPolygonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914DEF295DDBCD005F9A37 /* PointInPolygonUITestsLaunchTests.swift */; };
 		5C914DFD295DDC62005F9A37 /* PointInPolygonSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914DFC295DDC62005F9A37 /* PointInPolygonSolver.swift */; };
@@ -22,6 +22,7 @@
 		5C914E05295ECA60005F9A37 /* AngleCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914E04295ECA60005F9A37 /* AngleCheck.swift */; };
 		5C914E07295F0796005F9A37 /* crossProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914E06295F0796005F9A37 /* crossProduct.swift */; };
 		5C914E09295F341C005F9A37 /* nearestDistanceToLineBetweenTwoPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914E08295F341C005F9A37 /* nearestDistanceToLineBetweenTwoPoints.swift */; };
+		5C914E0B296167D9005F9A37 /* PointInPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C914E0A296167D9005F9A37 /* PointInPolygon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +52,7 @@
 		5C914DD8295DDBCC005F9A37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C914DDA295DDBCC005F9A37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C914DDF295DDBCD005F9A37 /* PointInPolygonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PointInPolygonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C914DE3295DDBCD005F9A37 /* PointInPolygonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInPolygonTests.swift; sourceTree = "<group>"; };
+		5C914DE3295DDBCD005F9A37 /* PointInTriangleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInTriangleTests.swift; sourceTree = "<group>"; };
 		5C914DE9295DDBCD005F9A37 /* PointInPolygonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PointInPolygonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C914DED295DDBCD005F9A37 /* PointInPolygonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInPolygonUITests.swift; sourceTree = "<group>"; };
 		5C914DEF295DDBCD005F9A37 /* PointInPolygonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInPolygonUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -61,6 +62,7 @@
 		5C914E04295ECA60005F9A37 /* AngleCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleCheck.swift; sourceTree = "<group>"; };
 		5C914E06295F0796005F9A37 /* crossProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crossProduct.swift; sourceTree = "<group>"; };
 		5C914E08295F341C005F9A37 /* nearestDistanceToLineBetweenTwoPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nearestDistanceToLineBetweenTwoPoints.swift; sourceTree = "<group>"; };
+		5C914E0A296167D9005F9A37 /* PointInPolygon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInPolygon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +129,8 @@
 		5C914DE2295DDBCD005F9A37 /* PointInPolygonTests */ = {
 			isa = PBXGroup;
 			children = (
-				5C914DE3295DDBCD005F9A37 /* PointInPolygonTests.swift */,
+				5C914E0A296167D9005F9A37 /* PointInPolygon.swift */,
+				5C914DE3295DDBCD005F9A37 /* PointInTriangleTests.swift */,
 				5C914E08295F341C005F9A37 /* nearestDistanceToLineBetweenTwoPoints.swift */,
 				5C914E00295EB97D005F9A37 /* TriangulateTests.swift */,
 				5C914E04295ECA60005F9A37 /* AngleCheck.swift */,
@@ -290,9 +293,10 @@
 			files = (
 				5C914E07295F0796005F9A37 /* crossProduct.swift in Sources */,
 				5C914E05295ECA60005F9A37 /* AngleCheck.swift in Sources */,
+				5C914E0B296167D9005F9A37 /* PointInPolygon.swift in Sources */,
 				5C914E09295F341C005F9A37 /* nearestDistanceToLineBetweenTwoPoints.swift in Sources */,
 				5C914E01295EB97D005F9A37 /* TriangulateTests.swift in Sources */,
-				5C914DE4295DDBCD005F9A37 /* PointInPolygonTests.swift in Sources */,
+				5C914DE4295DDBCD005F9A37 /* PointInTriangleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
