@@ -9,9 +9,18 @@ import Foundation
 //enum ErrorMsg {
 //    case listIsEmpty = "the list of vertices is empty"
 //}
+struct Answer {
+    var isIn : Bool
+    var distance : Double?
+}
 class PointInPolygonSolver{
     var vertices : [Point]?
 
+    func getAnswers(vertices: [Point], pointToCheck: Point , completion : @escaping (Answer)-> Void){
+
+        let answer = solve(vertices: vertices, pointToCheck: pointToCheck)
+        completion(answer)
+    }
     func checkIfOutSideABoxOfPolygon(vertices : [Point], pointToCheck : Point)->Bool{
         if vertices.count < 3{
             print("not a polygon")
@@ -45,17 +54,17 @@ class PointInPolygonSolver{
         return true
     }
     func solve(vertices : [Point],
-               pointToCheck : Point)-> String{
+               pointToCheck : Point)-> Answer{
 
             if isPointInPolygon(vertices: vertices,
                                 pointToCheck: pointToCheck){
-                return "The point is inside a Polygon"
+                return Answer(isIn: true)
 
             }
         else{
             let res = findADistanceBetweenAPolygonAndPoint(vertices: vertices,
                                                  pointToCheck: pointToCheck)
-            return "The point is outside and the minimal distance is: \(res)"
+            return Answer(isIn: false, distance: res)
         }
 
     }
@@ -63,17 +72,20 @@ class PointInPolygonSolver{
     func findADistanceBetweenAPolygonAndPoint(vertices : [Point],
                                        pointToCheck : Point
     )->Double{
-        if vertices.count < 3{
-            fatalError("wrong input")
+        let len = vertices.count
+        let vs = Array(vertices[0..<len - 1])
+        if vs.count < 3{
+            return 0
+            //fatalError("wrong input")
         }
-        let lastIdx = vertices.count - 1
-        var min = nearestDistanceToLineBetweenTwoPoints(a: vertices[0],
-                                                        b: vertices[lastIdx],
+        let lastIdx = vs.count - 1
+        var min = nearestDistanceToLineBetweenTwoPoints(a: vs[0],
+                                                        b: vs[lastIdx],
                                                         pointToCheck: pointToCheck)
         //find all the pairs
-        for i in 0..<vertices.count - 1{
-            var dist = nearestDistanceToLineBetweenTwoPoints(a: vertices[i],
-                                                             b: vertices[i + 1],
+        for i in 0..<vs.count - 1{
+            var dist = nearestDistanceToLineBetweenTwoPoints(a: vs[i],
+                                                             b: vs[i + 1],
                                                              pointToCheck: pointToCheck)
             if min > dist{
                 min = dist
@@ -82,19 +94,20 @@ class PointInPolygonSolver{
 
         return min
     }
-    func isPointInPolygon(vertices : [Point],
+    func isPointInPolygon( vertices : [Point],
                           pointToCheck : Point)->Bool{
-
+        if vertices.isEmpty {return false}
+        let len = vertices.count
+        var vs = Array(vertices[0..<len - 1])
         var triangles : [Int] = []
-        var errorMsg : String = ""
-        var indexList = Array(0...vertices.count - 1)
+        var indexList = Array(0...vs.count - 1)
 
-        if !isValidPolygon(vertices) {return false}
-        if vertices.count == 3 {
+        if !isValidPolygon(vs) {return false}
+        if vs.count == 3 {
             return isPointInTriangle(pointInCheck: pointToCheck,
-                                      aPoint: vertices[0],
-                                      bPoint: vertices[1],
-                                      cPoint: vertices[2])
+                                      aPoint: vs[0],
+                                      bPoint: vs[1],
+                                      cPoint: vs[2])
         }
         while indexList.count > 3{//if less than 3 we add the last to list of triangles
 
@@ -106,20 +119,20 @@ class PointInPolygonSolver{
                 let b = getItem(list: indexList, index: i - 1)
                 let c = getItem(list: indexList, index: i + 1)
 
-                let va = vertices[a]
-                let vb = vertices[b]
-                let vc = vertices[c]
+                let va = vs[a]
+                let vb = vs[b]
+                let vc = vs[c]
 
                 if angleIsMoreThan180(va: va, vb: vb, vc: vc){
                     continue
                 }
 
                 //check if a vertice is inside a triangle
-                for j in 0..<vertices.count{
+                for j in 0..<vs.count{
                     if j == a || j == b || j == c{
                         continue
                     }
-                    let p = vertices[j]
+                    let p = vs[j]
                     if isPointInTriangle(pointInCheck: p,
                             aPoint: va,
                             bPoint: vc,
@@ -149,16 +162,16 @@ class PointInPolygonSolver{
         }
         //left with 3 triangles
         if isPointInTriangle(pointInCheck: pointToCheck,
-                             aPoint: vertices[indexList[0]],
-                             bPoint: vertices[indexList[1]],
-                             cPoint: vertices[indexList[2]]){
+                             aPoint: vs[indexList[0]],
+                             bPoint: vs[indexList[1]],
+                             cPoint: vs[indexList[2]]){
             print("Found In Triangle = ([]")
             return true
         }
         triangles.append(indexList[0])
         triangles.append(indexList[1])
         triangles.append(indexList[2])
-        print("triangles : \(triangles), number of trinagles: \(triangles.count / 3) , number of vertices: \(vertices.count)")
+        print("triangles : \(triangles), number of trinagles: \(triangles.count / 3) , number of vertices: \(vs.count)")
         return false
     }
 
@@ -292,7 +305,7 @@ extension PointInPolygonSolver{
         let s1 = -(b.y) + a.y
         let s2 = b.x - a.x
         var mone = (c.x - a.x) * s1 + (c.y - a.y) * s2
-        if mone < 0 {mone * (-1)}
+        if mone < 0 {mone *= (-1)}
         let mechane = sqrt(((s1*s1) + (s2*s2)))
         return mone / mechane
 

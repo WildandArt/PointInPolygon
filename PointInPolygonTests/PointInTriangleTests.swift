@@ -121,17 +121,7 @@ final class PointInPolygonTests: XCTestCase {
                                            cPoint: c)
         XCTAssertFalse(result)
     }
-//    func testOnVertexTriangle1(){
-//        let a = abc.triangle1[0]
-//        let b = abc.triangle1[1]
-//        let c = abc.triangle1[2]
-//        let p = abc.triangle1[0]
-//        let result = sut.isPointInTriangle2(pointInCheck: p,
-//                                           aPoint: a,
-//                                           bPoint: b,
-//                                           cPoint: c)
-//        XCTAssertFalse(result)
-//    }
+
     func testOutsideTriangle3(){
         let a = abc.triangle3[0]
         let b = abc.triangle3[1]
